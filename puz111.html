@@ -83,7 +83,37 @@
             window.alert('SolvePuzzle has not been coded yet');
         }
         function SolveNumberPairs() { // call row and column
-            window.alert('SolveNumberPairs has not been coded yet');
+            //window.alert('SolveNumberPairs has not been coded yet');
+            var Gridsize = 6;
+            for (let Row = 0; Row < Gridsize; Row++) { //0 - 5 does the bottom row
+                for (let Col = 0; Col < Gridsize - 1; Col++) {
+                    if (Grid[Row][Col] !== null && Grid[Row][Col] == Grid[Row][Col + 1]) {
+                        if (Col > 0) { // Is there a space to the left?
+                            Grid[Row][Col - 1] = (1 - Grid[Row][Col]); //Insert to the left
+                        }
+                        if (Col < Gridsize - 2) { //Is there a space to the right?
+                            Grid[Row][Col + 2] = (1 - Grid[Row][Col]); //Insert to the right
+                        }
+                    }
+                }
+            }
+            document.getElementById('arrayView2D').value = Grid
+            DisplayGrid(Grid);
+            var Gridsize = 6;
+            for (let Col = 0; Col < Gridsize; Col++) { //0 - 5 does the bottom row
+                for (let Row = 0; Row < Gridsize - 1; Row++) {
+                    if (Grid[Row][Col] !== null && Grid[Row][Col] == Grid[Row + 1][Col]) {
+                        if (Row > 0) { // Is there a space to the left?
+                            Grid[Row - 1][Col] = (1 - Grid[Row][Col]); //Insert to the left
+                        }
+                        if (Row < Gridsize - 2) { //Is there a space to the right?
+                            Grid[Row + 2][Col] = (1 - Grid[Row][Col]); //Insert to the right 
+                        }
+                    }
+                }
+            }
+            document.getElementById('arrayView2D').value = Grid
+            DisplayGrid(Grid);
         }
         function SolveRowPairs() { // See pseudocode in Q22f for the row part here
             //window.alert('SolveRowPairs has not been coded yet');
@@ -105,7 +135,7 @@
 
         }
         function SolveColPairs() { // Similar to solve row pairs
-            window.alert('SolveColPairs has not been coded yet');
+            //window.alert('SolveColPairs has not been coded yet');
             var Gridsize = 6;
             for (let Col = 0; Col < Gridsize; Col++) { //0 - 5 does the bottom row
                 for (let Row = 0; Row < Gridsize - 1; Row++) {
